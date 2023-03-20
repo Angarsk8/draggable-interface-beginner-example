@@ -7,24 +7,24 @@ body {
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
   height: 100vh;
   background-color: #6732f0;
 }
 
 .UserCard {
+  --card-left-pos: 50%;
+  --card-top-pos: 50%;
+  position: absolute;
+  left: var(--card-left-pos);
+  top: var(--card-top-pos);
+  transform: translate(-50%, -50%);
   height: 350px;
   width: 350px;
   padding: 18px;
   background-color: white;
   border-radius: 10px;
-  transition: transform 200ms ease-in-out;
-}
-
-.UserCard:hover {
-  transform: scale(1.1);
+  cursor: move;
 }
 
 .UserCard__Banner {

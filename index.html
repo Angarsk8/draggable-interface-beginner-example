@@ -17,12 +17,10 @@
         <img class="UserCard__Banner__ProfilePicture" src="https://avatars.githubusercontent.com/u/11448559?v=4"
           alt="avatar">
       </div>
-
       <div class="UserCard__UserInfo">
         <div class="UserCard__UserInfo__Name">Andres Garcia</div>
         <div class="UserCard__UserInfo__Title">Software Developer</div>
       </div>
-
       <div class="UserCard__Stats">
         <div class="UserCard__Stats__Stat">
           <div class="UserCard__Stats__Stat__Count">17</div>
@@ -39,6 +37,46 @@
       </div>
     </div>
   </div>
+  <script>
+    const root = document.documentElement
+    const $userCard = document.querySelector('.UserCard')
+
+    $userCard.addEventListener('mousedown', (event) => {
+      const { left: cardX, top: cardY } = $userCard.getBoundingClientRect()
+      const shiftX = event.clientX - cardX;
+      const shiftY = event.clientY - cardY;
+
+      function setPosition(pageX, pageY) {
+        $userCard.style.setProperty('--card-left-pos', `${pageX - shiftX}px`);
+        $userCard.style.setProperty('--card-top-pos', `${pageY - shiftY}px`);
+      }
+
+      function onMouseMove(event) {
+        setPosition(event.pageX, event.pageY);
+      }
+
+      function onMouseUp() {
+        document.removeEventListener('mousemove', onMouseMove);
+        $userCard.removeEventListener('mouseup', onMouseUp);
+      }
+
+      // reset transform attribute used to center card initially
+      $userCard.style.setProperty('transform', 'none')
+
+      // set initial page position
+      setPosition(event.pageX, event.pageY);
+
+      // bind corresponding events
+      document.addEventListener('mousemove', onMouseMove);
+      $userCard.addEventListener('mouseup', onMouseUp);
+    });
+
+    // disable default dragging behavior of profile picture
+    document.querySelector('.UserCard__Banner__ProfilePicture')
+      .addEventListener('dragstart', function (event) {
+        event.preventDefault()
+      });
+  </script>
 </body>
 
 </html>
