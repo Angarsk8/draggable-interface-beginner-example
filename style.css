@@ -1,0 +1,93 @@
+html {
+  font-family: monospace;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #6732f0;
+}
+
+.UserCard {
+  height: 350px;
+  width: 350px;
+  padding: 18px;
+  background-color: white;
+  border-radius: 10px;
+  transition: transform 200ms ease-in-out;
+}
+
+.UserCard:hover {
+  transform: scale(1.1);
+}
+
+.UserCard__Banner {
+  height: 40%;
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.UserCard__Banner__BG {
+  height: 100%;
+  background-color: #6732f0;
+  background-image: url(https://media.licdn.com/dms/image/C4E16AQHcVPawrkmt2Q/profile-displaybackgroundimage-shrink_350_1400/0/1662110119027?e=1684972800&v=beta&t=ubv4nKMQ3b59Hs0HLAH34aWbqGEPU9S6Uprd2eoFdIg);
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.UserCard__Banner__ProfilePicture {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  transform: translate(-50%, 50%);
+  outline: 4px white solid;
+}
+
+.UserCard__UserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserCard__UserInfo__Name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.UserCard__UserInfo__Title {
+  font-size: 16px;
+  font-weight: 400;
+  color: #898c91;
+}
+
+.UserCard__Stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 42px;
+}
+
+.UserCard__Stats__Stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserCard__Stats__Stat__Count {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.UserCard__Stats__Stat__Type {
+  font-size: 14px;
+  font-weight: 400;
+  color: #898c91;
+}
